@@ -13,7 +13,8 @@ import { Flex } from "@chakra-ui/react";
 export interface GameQuery {
   genre: Genre | null;
   platform: Platform | null;
-  sortOrder: string
+  sortOrder: string;
+  searchText: string
 }
 function App() {
 
@@ -30,7 +31,7 @@ const [gameQuery, setGameQuery] = useState<GameQuery>({} as GameQuery)
         lg: "200px 1fr" 
       }}>
         <GridItem area="nav">
-          <Navbar/>
+          <Navbar onSearch={(searchText) => setGameQuery({...gameQuery, searchText})}/>
         </GridItem>
 
         <Show above='lg'>
